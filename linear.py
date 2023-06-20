@@ -9,10 +9,10 @@ import streamlit as st
 
 df = pd.read_csv("credit access.csv", encoding='latin-1')
 
-st.title("Hồi quy tuyến tính")
-st.write("## Dự báo giá trị vay vốn của nông hộ")
+st.title("Ứng dụng dự báo tín dụng")
+st.write("## Dự báo giá trị vay vốn của Agribank Thủ Đô")
 
-uploaded_file = st.file_uploader("Choose a file", type=['csv'])
+uploaded_file = st.file_uploader("Nhập file dữ liệu", type=['csv'])
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file, encoding='latin-1')
     df.to_csv("data.csv", index = False)
@@ -84,17 +84,17 @@ elif choice == 'Sử dụng mô hình để dự báo':
             # st.write(lines.columns)
             flag = True       
     if type=="Input":        
-        git = st.number_input('Insert giatri')
-        DT = st.number_input('Insert DT')
-        TN = st.number_input('Insert TN')
-        SPT = st.number_input('Insert SPT')
-        GTC = st.number_input('Insert GTC')
-        GD = st.number_input('Insert GD')
-        TCH = st.number_input('Insert TCH')
-        GT = st.number_input('Insert GT')
-        DV = st.number_input('Insert DV')
-        VPCT = st.number_input('Insert VPCT')
-        LS = st.number_input('Insert LS')
+        git = st.number_input('Insert giatri - khai báo giá trị')
+        DT = st.number_input('Insert DT - khai báo diện tích')
+        TN = st.number_input('Insert TN - khai báo thu nhập')
+        SPT = st.number_input('Insert SPT - người phụ thuộc')
+        GTC = st.number_input('Insert GTC - giá trị thế chấp')
+        GD = st.number_input('Insert GD - số năm đến trường')
+        TCH = st.number_input('Insert TCH - tuổi chủ hộ')
+        GT = st.number_input('Insert GT - giới tính')
+        DV = st.number_input('Insert DV - địa vị')
+        VPCT = st.number_input('Insert VPCT - vay phi chính thức')
+        LS = st.number_input('Insert LS - lịch sử tín dụng')
         lines={'giatri':[git],'DT':[DT],'TN':[TN],'SPT':[SPT],'GTC':[GTC],'GD':[GD],'TCH':[TCH],'GT':[GT],'DV':[DV],'VPCT':[VPCT],'LS':[LS]}
         lines=pd.DataFrame(lines)
         st.dataframe(lines)
